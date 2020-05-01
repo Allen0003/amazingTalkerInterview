@@ -1,9 +1,9 @@
 package com.interview.register.controller;
 
 import com.google.gson.JsonObject;
-import com.interview.register.entity.RegisterUser;
+//import com.interview.register.entity.RegisterUser;
 import com.interview.register.entity.User;
-import com.interview.register.repository.RegisterRepository;
+//import com.interview.register.repository.RegisterRepository;
 import com.interview.register.service.MailService;
 import com.interview.register.service.RegisterService;
 import org.slf4j.LoggerFactory;
@@ -25,11 +25,15 @@ public class RegisterController {
     @Autowired
     private MailService mailService;
 
-    @Autowired
-    private RegisterRepository registerRepository;
+//    @Autowired
+////    private RegisterRepository registerRepository;
 
     @PostMapping("/amazing-talker/register")
-    public Object findById(@RequestBody User user) {
+    public Object register(@RequestBody User user) {
+
+
+
+        System.out.println(user.getEmail());
 
         JsonObject response = new JsonObject();
 
@@ -37,24 +41,25 @@ public class RegisterController {
             return this.returnErrorObject(response);
         }
 
+        //sending mail
         mailService.sendRegisterSuccess(user.getEmail());
         mailService.sendCoupon(user.getEmail());
 
 
-        RegisterUser registerUser = new RegisterUser();
+//        RegisterUser registerUser = new RegisterUser();
+//
+//        registerUser.setEmail(user.getEmail());
+//        registerUser.setName(user.getName());
+//        registerUser.setPassword(user.getPassword());
 
-        registerUser.setEmail(user.getEmail());
-        registerUser.setName(user.getName());
-        registerUser.setPassword(user.getPassword());
 
-
-        // set email as unique column
-        try {
-            response.addProperty("token", registerRepository.save(registerUser).getId());
-        } catch (Exception e) {
-            logger.debug(e.toString());
-            return this.returnErrorObject(response);
-        }
+        // set email as unique column here
+//        try {
+////            response.addProperty("token", registerRepository.save(registerUser).getId());
+//        } catch (Exception e) {
+//            logger.debug(e.toString());
+//            return this.returnErrorObject(response);
+//        }
         return response;
     }
 

@@ -1,10 +1,30 @@
 package com.interview.register.entity;
 
+//import javax.persistence.*;
+
+
+//@Entity
+//@Table(name = "user")
 public class User {
+
+    private Long id;
+
     private String name;
     private String email;
     private String password;
     private String reEnterPassword;
+
+    private Enum source;
+
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
