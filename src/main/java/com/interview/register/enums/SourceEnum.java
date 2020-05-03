@@ -14,11 +14,6 @@ public enum SourceEnum {
     public String getSource() {
         return this.soruce;
     }
-
-    public String getSoruce() {
-        return soruce;
-    }
-
     public void setSoruce(String soruce) {
         this.soruce = soruce;
     }

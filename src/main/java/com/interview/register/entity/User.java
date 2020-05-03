@@ -1,10 +1,12 @@
 package com.interview.register.entity;
 
-//import javax.persistence.*;
+import com.interview.register.enums.SourceEnum;
+
+import javax.persistence.*;
 
 
-//@Entity
-//@Table(name = "user")
+@Entity
+@Table(name = "user")
 public class User {
 
     private Long id;
@@ -14,10 +16,10 @@ public class User {
     private String password;
     private String reEnterPassword;
 
-    private Enum source;
+    private SourceEnum source;
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
@@ -56,5 +58,13 @@ public class User {
 
     public void setReEnterPassword(String reEnterPassword) {
         this.reEnterPassword = reEnterPassword;
+    }
+
+    public SourceEnum getSource() {
+        return source;
+    }
+
+    public void setSource(SourceEnum source) {
+        this.source = source;
     }
 }

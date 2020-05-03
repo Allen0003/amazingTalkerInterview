@@ -1,2 +1,8 @@
 server:
-  port: 8099
+  port: 8111
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/Ielts
+    username: root
+    password: apss1943
